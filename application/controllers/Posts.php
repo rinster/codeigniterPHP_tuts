@@ -6,6 +6,7 @@
 
             //Add posts into the data model
             $data['posts'] = $this->post_model->get_posts();
+            #print_r($data['posts']); #test print if retrieving from DB
 
             $this->load->view('templates/header');
             $this->load->view('posts/index', $data);
