@@ -13,7 +13,7 @@
             $this->load->view('templates/footer');
         }
 
-        //Linking views
+        //Linking posts/views.php
         public function view($slug = NULL){
             $data['post'] = $this->post_model->get_posts($slug); 
 
@@ -26,6 +26,16 @@
             #Load our views
             $this->load->view('templates/header');
             $this->load->view('posts/view', $data);
+            $this->load->view('templates/footer');
+        }
+
+        //Create Post
+        public function create(){
+            $data['title'] = 'Create Post';
+
+            #Load our views
+            $this->load->view('templates/header');
+            $this->load->view('posts/create', $data);
             $this->load->view('templates/footer');
         }
     }
