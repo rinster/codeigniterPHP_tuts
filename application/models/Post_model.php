@@ -7,6 +7,9 @@
         #GET: fetch all posts from DB
         public function get_posts($slug = FALSE){ # set slug to false is passed in as default
             if($slug === FALSE){ # check if slug is not passed in
+                #order the posts by id to have recent posts first - decending order
+                $this->db->order_by('id', 'DESC');
+                #store the posts in the query
                 $query = $this->db->get('posts');
                 return $query->result_array();
             }
