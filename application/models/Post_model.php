@@ -36,4 +36,18 @@
             $this->db->delete('posts'); #then delete it
             return true; #indicate post was sucessfully deleted
         }
+
+        #POST: Submit post to DB
+        public function update_post(){
+            #echo $this->input->post('id');die(); #test id is being received
+            $slug = url_title($this->input->post('title'));
+
+            $data = array(
+                'title' => $this->input->post('title'),
+                'slug' => $slug,
+                'body' => $this->input->post('body')
+            );
+            $this->db->where('id', $this->input->post('id')); #locate post by id
+            return $this->db->update('posts', $data);
+        }
     }
