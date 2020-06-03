@@ -18,6 +18,9 @@
                     <li><a href="<?php echo base_url(); ?>about">About</a></li>
                     <li><a href="<?php echo base_url(); ?>posts">Blog</a></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
+                </ul>
             </div>
         </div>
     </nav>  
