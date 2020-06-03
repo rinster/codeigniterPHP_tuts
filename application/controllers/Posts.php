@@ -77,4 +77,8 @@
             $this->load->view('posts/edit', $data);
             $this->load->view('templates/footer');
         }
+
+        public function update() {
+            echo 'SUBMITTED';
+        }
     }
