@@ -29,4 +29,11 @@
             );
             return $this->db->insert('posts', $data);
         }
+
+        #PUT: Delete post
+        public function delete_post($id){
+            $this->db->where('id', $id); #locate post by id
+            $this->db->delete('posts'); #then delete it
+            return true; #indicate post was sucessfully deleted
+        }
     }

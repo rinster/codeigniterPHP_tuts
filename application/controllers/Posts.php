@@ -51,9 +51,14 @@
                 //$this->load->view('post/success');
                 #redirect to post create in lieu of success view
                 redirect('posts');
-            }
+            }            
+        }
 
-
-            
+        #Delete Post
+        public function delete($id){
+            #echo $id; #Test of id is being received
+            #Delete post
+            $this->post_model->delete_post($id);
+            redirect('posts');
         }
     }
