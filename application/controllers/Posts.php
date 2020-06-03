@@ -61,4 +61,20 @@
             $this->post_model->delete_post($id);
             redirect('posts');
         }
+
+        #Edit Post - Render the Edit post view
+        public function edit($slug){
+            $data['post'] = $this->post_model->get_posts($slug); 
+
+            if(empty($data['post'])) { #if no slug, show 404 error message
+                show_404();
+            }
+            
+            $data['title'] = 'Edit Post';
+
+            #Load our views
+            $this->load->view('templates/header');
+            $this->load->view('posts/edit', $data);
+            $this->load->view('templates/footer');
+        }
     }
