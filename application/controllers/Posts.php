@@ -33,9 +33,27 @@
         public function create(){
             $data['title'] = 'Create Post';
 
-            #Load our views
-            $this->load->view('templates/header');
-            $this->load->view('posts/create', $data);
-            $this->load->view('templates/footer');
+            #Setting rules for form validation
+            $this->form_validation->set_rules('title', 'Title', 'required'); #(name, format, isRequired?)
+            $this->form_validation->set_rules('body', 'Body', 'required');
+
+            #Check IF form has been submitted
+            #If NOT submitted
+            if($this->form_validation->run() === FALSE){
+                #Load our views
+                $this->load->view('templates/header');
+                $this->load->view('posts/create', $data);
+                $this->load->view('templates/footer');
+            } else {#IF submitted and validation passes
+                #create post to model
+                $this->post_model->create_post();
+                #load a success view
+                //$this->load->view('post/success');
+                #redirect to post create in lieu of success view
+                redirect('posts');
+            }
+
+
+            
         }
     }

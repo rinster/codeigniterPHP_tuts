@@ -1,4 +1,8 @@
 <h2><?= $title; ?></h2>
+
+<!---FORM VALIDATION--->
+<?php echo validation_errors(); ?>
+
 <?php echo form_open('posts/create'); ?>
   <div class="form-group">
     <label>Title</label>
