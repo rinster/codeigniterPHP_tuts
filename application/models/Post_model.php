@@ -50,4 +50,14 @@
             $this->db->where('id', $this->input->post('id')); #locate post by id
             return $this->db->update('posts', $data);
         }
+
+        #GET: Get categories data to populate form in create posts
+        public function get_categories(){
+            #organize categories by name
+            $this->db->order_by('name'); 
+            #store it into '$query'
+            $query = $this->db->get('categories'); 
+            #return data into an array
+            return $query->result_array();
+        }
     }

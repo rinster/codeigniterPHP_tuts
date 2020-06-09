@@ -33,6 +33,9 @@
         public function create(){
             $data['title'] = 'Create Post';
 
+            #retrieve categories data for the DB to insert into form
+            $data['categories'] = $this->post_model->get_categories();
+
             #Setting rules for form validation
             $this->form_validation->set_rules('title', 'Title', 'required'); #(name, format, isRequired?)
             $this->form_validation->set_rules('body', 'Body', 'required');
@@ -78,6 +81,7 @@
             $this->load->view('templates/footer');
         }
 
+        #Update Post
         public function update() {
             $this->post_model->update_post();
             redirect('posts');
