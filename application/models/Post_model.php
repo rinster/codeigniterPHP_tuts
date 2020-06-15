@@ -8,7 +8,9 @@
         public function get_posts($slug = FALSE){ # set slug to false is passed in as default
             if($slug === FALSE){ # check if slug is not passed in
                 #order the posts by id to have recent posts first - decending order
-                $this->db->order_by('id', 'DESC');
+                $this->db->order_by('posts.id', 'DESC');
+                #join tables of categories with posts
+                $this->db->join('categories', 'categories.id = posts.category_id');
                 #store the posts in the query
                 $query = $this->db->get('posts');
                 return $query->result_array();
