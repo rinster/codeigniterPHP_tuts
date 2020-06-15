@@ -69,6 +69,9 @@
         public function edit($slug){
             $data['post'] = $this->post_model->get_posts($slug); 
 
+            #retrieve categories data for the DB to populate into form
+            $data['categories'] = $this->post_model->get_categories();
+
             if(empty($data['post'])) { #if no slug, show 404 error message
                 show_404();
             }
