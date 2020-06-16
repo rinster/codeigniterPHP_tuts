@@ -3,7 +3,7 @@
 <!---FORM VALIDATION--->
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('posts/create'); ?>
+<?php echo form_open_multipart('posts/create'); ?> <!-- '_multipart' allows files to be uploaded--->
 
   <!--Title-->
   <div class="form-group">
@@ -27,6 +27,12 @@
         <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
       <?php endforeach; ?>
     </select>
+  </div>
+  
+  <!--Image upload--->
+  <div class="form-group">
+        <label for="">Upload Image</label>
+        <input type="file" name="postimage" size="20">
   </div>
 
   <!--Submit-->
