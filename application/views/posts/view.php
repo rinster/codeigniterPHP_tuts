@@ -1,5 +1,9 @@
 <h2><?php echo $post['title']; ?></h2>
 <small class="post-date">Posted on: <?php echo $post['created_at']; ?></small>
+
+<img src="<?php echo site_url(); ?>assets/images/pots/<?php echo $post['post_image'];?>">
+
+<!---Post Body-->
 <div class="post-body">
     <?php echo $post['body']; ?>
 </div>
