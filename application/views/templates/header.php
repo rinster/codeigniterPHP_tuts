@@ -2,7 +2,7 @@
     <head>
         <title>ciBlog</title>
         <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
-        <link rel="stylesheet" href="<?php echo base_url();?>/assets/css/style.css">
+        <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
         <script src="http://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script><!--CKEditor--->
     </head>
     <body>
