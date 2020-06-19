@@ -31,8 +31,8 @@
   
   <!--Image upload--->
   <div class="form-group">
-        <label for="">Upload Image</label>
-        <input type="file" name="postimage" size="20">
+        <label>Upload Image</label>
+        <input type="file" name="userfile" size="20">
   </div>
 
   <!--Submit-->

@@ -48,8 +48,28 @@
                 $this->load->view('posts/create', $data);
                 $this->load->view('templates/footer');
             } else {#IF submitted and validation passes
+                
+                #Upload image configuration
+                $config['upload_path'] = './assets/images/posts';
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['max_width'] = '500';
+                $config['max_height'] = '500';
+                #upload files with the configuration stated above
+                $this->load->library('upload', $config);
+                #check if files are uploaded
+                if(!$this->upload->do_upload('userfile')) {
+                    #if upload fails or no file is uploaded
+                    $errors = array('error' => $this->upload->display_errors());
+                    $post_image = 'noimage.jpg'; #default image if user does not upload image
+                } else {
+                    #if file upload succeeds
+                    $data = array('upload_data' => $this->upload->data()); #save file to specified upload path folder
+                    $post_image = $_FILES['userfile']['name']; #pass the userfile name of image to the database
+                } 
+                
                 #create post to model
-                $this->post_model->create_post();
+                $this->post_model->create_post($post_image); #pass $post_image into model
                 #load a success view
                 //$this->load->view('post/success');
                 #redirect to post create in lieu of success view
